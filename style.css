@@ -294,6 +294,41 @@ header ul li:hover a{
 #Projects .content, #Contact .content{
      grid-template-columns: repeat(2,1fr);
 }
+.menuToggle{
+    position: relative;
+    width: 30px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    
+}
+.menuToggle::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    transform: translateY(-10px);
+    transition: 0.5s;
+    box-shadow: 0 10px #fff;
+
+}
+.menuToggle::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    transform: translateY(10px);
+    transition: 0.5s;
+    
+
+}
+header ul{
+    display: none;
+}
 }
 
 
@@ -319,4 +354,42 @@ header ul li:hover a{
 #Projects .content, #Contact .content{
      grid-template-columns: repeat(1,1fr);
 }
+#Contact .content a {
+    height: 80px;
+}
+
+header.active .menuToggle::before{
+    transform: translateY(0px) rotate(45deg);
+    box-shadow: 0 0 #fff;
+}
+
+header.active .menuToggle::after{
+    transform: translateY(0px) rotate(315deg);
+   
+}
+header ul{
+    display: none;
+}
+header.active ul{
+
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 84px;
+    height: calc(100vh - 84px);
+    display: flex;
+    background: rgba(50, 50, 50, 0.95);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 10000;
+    gap: 20px;
+}
+header.active ul li a{
+    font-size: 2em;
+}
+
+
+
+
 }
